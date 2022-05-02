@@ -1,51 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>文件预览</title>
-</head>
- 
-<body>
-<div id="placeholder"></div>
-<!--<script type="text/javascript" src="http://fynn.top:8088/web-apps/apps/api/documents/api.js"></script>-->
-<script type="text/javascript" src="https://pdxkk.xyz:50256/web-apps/apps/api/documents/api.js"></script>
-<!-- 如果是外网可访问，这里也可以使用我的 -->
-<script>
-    function GetQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]); return null;
-    }
-    //解码url
-    let url = decodeURIComponent(GetQueryString("src"))
-    var file=url.split('/')
-    file=file[file.length-1]
-    var suffix = file.split('.')
-    suffix=suffix[suffix.length-1]
-    var docEditor = new DocsAPI.DocEditor("placeholder", {
-        "document": {
-            "fileType": suffix,
-            "permissions": {
-                "edit": false,
-				"comment":true,
-				"download":true,
-				"print":true,
-				"fillForms": true,
-            },
-            "title": file,
-            "url": url,
-        },
-		"editorConfig":{
-		//"callbackUrl": "",//回调地址，一定要保证docserver可以请求到，否则开不开文件
-			"lang":"zh-CN",
-			"mode":"view", //编辑模式 edit
-		},
-        "height": "1080px",
-        // "width": "100%",
-		"type":"desktop",
-		
-    });
- 
-</script>
-</body>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>文件预览</title>
+    </head>
+    <script>
+        console.error("别骂了别骂了")
+        console.warn("Cloudreve把API接口加密了")
+        console.info("我们也没办法啊qwq")
+    </script>
+    <body>
+        <h1 style="text-align:center">文件预览功能目前正在维护中</h1>
+        <h3 style="text-align:center">The file preview function is currently being maintained</h3>
+    </body>
 </html>
