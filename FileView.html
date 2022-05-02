@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件预览</title>
+</head>
+ 
+<body>
+<div id="placeholder"></div>
+<!--<script type="text/javascript" src="http://fynn.top:8088/web-apps/apps/api/documents/api.js"></script>-->
+<script type="text/javascript" src="http://pdxkk.xyz:50256/web-apps/apps/api/documents/api.js"></script>
+<!-- 如果是外网可访问，这里也可以使用我的 -->
+<script>
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+    //解码url
+    let url = decodeURIComponent(GetQueryString("src"))
+    var file=url.split('/')
+    file=file[file.length-1]
+    var suffix = file.split('.')
+    suffix=suffix[suffix.length-1]
+    var docEditor = new DocsAPI.DocEditor("placeholder", {
+        "document": {
+            "fileType": suffix,
+            "permissions": {
+                "edit": false,
+				"comment":true,
+				"download":true,
+				"print":true,
+				"fillForms": true,
+            },
+            "title": file,
+            "url": url,
+        },
+		"editorConfig":{
+		//"callbackUrl": "",//回调地址，一定要保证docserver可以请求到，否则开不开文件
+			"lang":"zh-CN",
+			"mode":"view", //编辑模式 edit
+		},
+        "height": "1080px",
+        // "width": "100%",
+		"type":"desktop",
+		
+    });
+ 
+</script>
+</body>
+</html>
